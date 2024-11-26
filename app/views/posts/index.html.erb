@@ -6,7 +6,16 @@
 
 <div id="posts">
   <% @posts.each do |post| %>
-    <%= render post %>
+    <div id="<%= dom_id post %>">
+      <p>
+        <h2><%= link_to post.title, post %></h2>
+      </p>
+
+      <p>
+        发布于 <%= time_tag post.created_at, "data-local": "time-ago" %>
+      </p>
+
+    </div>
   <% end %>
 </div>
 
